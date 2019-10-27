@@ -25,26 +25,25 @@
                     <img src="https://www.freeiconspng.com/uploads/batman-icon-png-8.png" width="30" height="30" class="d-inline-block align-top" alt="">
                     Batman
                 </a>
-                <ul class="nav navbar-right">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('inscription') }}" style="color: black;">
-                            <i class="fa fa-user-plus"></i> Inscription
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" style="color: black;" href="#">
-                            <i class="fa fa-sign-in"></i> Connexion
-                        </a>
-                    </li>
-                </ul>
+                {% if not app.user %}
+                    <ul class="nav navbar-right">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('inscription') }}" style="color: black;">
+                                <i class="fa fa-user-plus"></i> Inscription
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="color: black;" href="{{ path('login') }}">
+                                <i class="fa fa-sign-in"></i> Connexion
+                            </a>
+                        </li>
+                    </ul>
+                {% endif %}
             </div>
         </nav>
     {% endblock %}
     <body>
         {% block body %}
-            <div>
-                <p>Utilisateur : {{ app.user }}</p>
-            </div>
 
         {% endblock %}
         {% block footer %}
